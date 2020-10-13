@@ -2,37 +2,43 @@ app.controller("MahasiswaController", [
     "$scope",
     "$location",
     "$timeout",
-    function ($scope, $location, $timeout) {
+    "MahasiswaServices",
+    "sharedData",
+    function ($scope, $location, $timeout, MahasiswaServices, sharedData) {
         var self = $scope;
+
+        self.Mahasiswa = MahasiswaServices.Mahasiswa;
         self.init = function () { };
 
-        self.Mahasiswa = [
-            {
-                name: "muflikhah",
-                nim: "11.11.11",
-                status: "active",
-                email: "muflikhah@gmail.com",
-                major: "informathic"
-            },
-            {
-                name: "isna",
-                nim: "22.22.22",
-                status: "active",
-                email: "isna@gmail.com",
-                major: "information system"
-            }
-        ]
+        // self.Mahasiswa = [
+        //     {
+        //         name: "muflikhah",
+        //         nim: "11.11.11",
+        //         status: "active",
+        //         email: "muflikhah@gmail.com",
+        //         major: "informathic"
+        //     },
+        //     {
+        //         name: "isna",
+        //         nim: "22.22.22",
+        //         status: "active",
+        //         email: "isna@gmail.com",
+        //         major: "information system"
+        //     }
+        // ]
 
         self.add = function () {
+            sharedData.FormTitle = "Add";
             $location.path("/add");
         };
-        self.edit = function () {
+        self.edit = function (param) {
+            sharedData.FormTitle = "Edit";
+            sharedData.Mahasiswa = param;
             $location.path("/edit");
         };
-        self.delete = function ($index) {
-            self.Mahasiswa.splice($index, 1);
+        self.delete = function (index) {
+            self.Mahasiswa.splice(index, 1);
         };
-
         self.init();
     },
 ]);
@@ -41,32 +47,31 @@ app.controller("MahasiswaAddController", [
     "$scope",
     "$location",
     "$timeout",
-    function ($scope, $location, $timeout) {
+    "MahasiswaServices",
+    "sharedData",
+    function ($scope, $location, $timeout, MahasiswaServices, sharedData) {
         var self = $scope;
-        self.firstname = "John";
-        self.init = function () { };
+        self.Data = [];
 
-        $scope.insert = function () {
-            $scope.Mahasiswa.push({
-                name: $scope.name,
-                nim: $scope.nim,
-                status: $scope.status,
-                email: $scope.email,
-                major: $scope.major
-            });
-            $location.path("/add");
-            $scope.clearForm();
-        }
+        self.UI = [];
+        self.UI.FormTitle = "";
 
-        $scope.clearForm = function () {
-            $scope.name = ""; $scope.nim = ""; $scope.status = ""; $scope.email = ""; $scope.major = "";
-        }
-
-        self.init();
+        self.init = function () {
+            self.UI.FormTitle = sharedData.FormTitle;
+        };
 
         self.back = function () {
             $location.path("/");
+        };
+
+        self.save = function () {
+            MahasiswaServices.add(self.newMahasiswa);
+            self.newMahasiswa = {};
+
+            $location.path("/");
         }
+
+        self.init();
     },
 ]);
 
@@ -74,15 +79,29 @@ app.controller("MahasiswaEditController", [
     "$scope",
     "$location",
     "$timeout",
-    function ($scope, $location, $timeout) {
+    "MahasiswaServices",
+    "sharedData",
+    function ($scope, $location, $timeout, MahasiswaServices, sharedData) {
         var self = $scope;
-        self.firstname = "John";
-        self.init = function () { };
+        self.Data = [];
 
-        self.init();
+        self.UI = [];
+        self.UI.FormTitle = "";
+
+        self.init = function () {
+            self.UI.FormTitle = sharedData.FormTitle;
+        };
 
         self.back = function () {
             $location.path("/");
+        };
+
+        self.save = function () {
+            self.newMahasiswa = {};
+
+            $location.path("/");
         }
+
+        self.init();
     },
 ]);

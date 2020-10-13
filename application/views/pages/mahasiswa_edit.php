@@ -17,32 +17,32 @@
         <div class="col-12 grid-margin">
             <div class="card">
                 <div class="card-body">
-                    <form class="forms-sample" name="AddFormMahasiswa">
+                    <form class="forms-sample" name="EditFormMahasiswa">
                         <div class="form-group">
                             <label for="InputName">Full Name</label>
-                            <input type="text" class="form-control" id="InputName" name="name" placeholder="Name..">
+                            <input type="text" class="form-control" id="InputName" name="name" ng-model="newMahasiswa.name" placeholder="Name..">
                         </div>
                         <div class="form-group">
                             <label for="InputNim">NIM </label>
-                            <input type="text" class="form-control" id="InputNim" name="nim" placeholder="Nim..">
+                            <input type="text" class="form-control" id="InputNim" name="nim" ng-model="newMahasiswa.nim" placeholder="Nim..">
                         </div>
                         <div class="form-group">
                             <label for="InputStatus">Status</label>
-                            <input type="text" class="form-control" id="InputStatus" name="status" placeholder="Status..">
+                            <input type="text" class="form-control" id="InputStatus" name="status" ng-model="newMahasiswa.status" placeholder="Status..">
                         </div>
                         <div class="form-group">
                             <label for="InputEmail">Email</label>
-                            <input type="email" class="form-control" id="InputEmail" name="email" placeholder="Email..">
+                            <input type="email" class="form-control" id="InputEmail" name="email" ng-model="newMahasiswa.email" placeholder="Email..">
                         </div>
                         <div class="form-group">
                             <label for="InputMajor">Major</label>
-                            <select class="form-control" id="InputMajor" name="major">
+                            <select class="form-control" id="InputMajor" ng-model="newMahasiswa.major" name="major">
                                 <option>IF</option>
                                 <option>SI</option>
                                 <option>Ilkom</option>
                             </select>
                         </div>
-                        <button type="submit" class="btn btn-gradient-primary mr-2" ng-click="insert()" ng-disabled="AddFormMahasiswa.$invalid">Submit</button>
+                        <button type="submit" class="btn btn-gradient-primary mr-2" ng-click="save()" ng-disabled="EditFormMahasiswa.$invalid">Submit</button>
                         <button class="btn btn-light" ng-click="clearForm()">Cancel</button>
                     </form>
                 </div>

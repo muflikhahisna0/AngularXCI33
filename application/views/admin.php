@@ -53,6 +53,7 @@
 	<script src="<?php echo $js_url; ?>app/app.js?<?php echo time(); ?>"></script>
 	<script src="<?php echo $js_url; ?>app/<?php echo $ang_script ?>/app-route.js?<?php echo time(); ?>"></script>
 	<script src="<?php echo $js_url; ?>app/<?php echo $ang_script ?>/app-controller.js?<?php echo time(); ?>"></script>
+	<script src="<?php echo $js_url; ?>app/<?php echo $ang_script ?>/app-service.js?<?php echo time(); ?>"></script>
 	<!-- plugins:js -->
 
 	<?php $this->load->view('layout/plugin'); ?>

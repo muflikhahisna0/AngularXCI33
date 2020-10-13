@@ -8,7 +8,7 @@
     <div class="row" id="proBanner">
         <div class="col-12">
             <span class="d-flex align-items-center purchase-popup">
-                <p>Add Student's Data</p>
+                <p>{{ UI.FormTitle }} Student's Data</p>
                 <a href="" ng-click="back()" class="btn download-button purchase-button ml-auto text-white">Cancel</a>
             </span>
         </div>
@@ -20,29 +20,29 @@
                     <form class="forms-sample" name="AddFormMahasiswa">
                         <div class="form-group">
                             <label for="InputName">Full Name</label>
-                            <input type="text" class="form-control" id="InputName" name="name" placeholder="Name..">
+                            <input type="text" ng-model="newMahasiswa.name" class="form-control" id="InputName" name="name" placeholder="Name..">
                         </div>
                         <div class="form-group">
                             <label for="InputNim">NIM </label>
-                            <input type="text" class="form-control" id="InputNim" name="nim" placeholder="Nim..">
+                            <input type="text" ng-model="newMahasiswa.nim" class="form-control" id="InputNim" name="nim" placeholder="Nim..">
                         </div>
                         <div class="form-group">
                             <label for="InputStatus">Status</label>
-                            <input type="text" class="form-control" id="InputStatus" name="status" placeholder="Status..">
+                            <input type="text" ng-model="newMahasiswa.status" class="form-control" id="InputStatus" name="status" placeholder="Status..">
                         </div>
                         <div class="form-group">
                             <label for="InputEmail">Email</label>
-                            <input type="email" class="form-control" id="InputEmail" name="email" placeholder="Email..">
+                            <input type="email" ng-model="newMahasiswa.email" class="form-control" id="InputEmail" name="email" placeholder="Email..">
                         </div>
                         <div class="form-group">
                             <label for="InputMajor">Major</label>
-                            <select class="form-control" id="InputMajor" name="major">
+                            <select class="form-control" ng-model="newMahasiswa.major" id="InputMajor" name="major">
                                 <option>IF</option>
                                 <option>SI</option>
                                 <option>Ilkom</option>
                             </select>
                         </div>
-                        <button type="submit" class="btn btn-gradient-primary mr-2" ng-click="insert()" ng-disabled="AddFormMahasiswa.$invalid">Submit</button>
+                        <button type="submit" class="btn btn-gradient-primary mr-2" ng-click="save()" ng-disabled="AddFormMahasiswa.$invalid">Submit</button>
                         <button class="btn btn-light" ng-click="clearForm()">Cancel</button>
                     </form>
                 </div>

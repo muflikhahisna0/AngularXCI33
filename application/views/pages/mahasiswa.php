@@ -42,7 +42,7 @@
                                     <td> {{ mhs.email }} </td>
                                     <td> {{ mhs.major }} </td>
                                     <td>
-                                        <label ng-click="edit()" class="badge badge-gradient-info">Edit</label>
+                                        <label ng-click="edit($index)" class="badge badge-gradient-info">Edit</label>
                                         <label ng-click="delete($index)" class="badge badge-gradient-danger">Delete</label>
                                     </td>
                                 </tr>
