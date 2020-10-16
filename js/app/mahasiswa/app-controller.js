@@ -31,9 +31,11 @@ app.controller("MahasiswaController", [
             sharedData.FormTitle = "Add";
             $location.path("/add");
         };
-        self.edit = function (param) {
+        self.edit = function (index) {
             sharedData.FormTitle = "Edit";
-            sharedData.Mahasiswa = param;
+            sharedData.Mahasiswa = index;
+            console.log(`MahasiswaController edit function called: ${index}`)
+            // self.newMahasiswa = MahasiswaServices.get(index)
             $location.path("/edit");
         };
         self.delete = function (index) {
@@ -71,6 +73,10 @@ app.controller("MahasiswaAddController", [
             $location.path("/");
         }
 
+        self.clearForm = function () {
+            self.newMahasiswa = {};
+        }
+
         self.init();
     },
 ]);
@@ -98,7 +104,6 @@ app.controller("MahasiswaEditController", [
 
         self.save = function () {
             self.newMahasiswa = {};
-
             $location.path("/");
         }
 

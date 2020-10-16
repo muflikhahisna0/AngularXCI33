@@ -9,7 +9,7 @@
         <div class="col-12">
             <span class="d-flex align-items-center purchase-popup">
                 <p>{{ UI.FormTitle }} Student's Data</p>
-                <a href="" ng-click="back()" class="btn download-button purchase-button ml-auto text-white">Cancel</a>
+                <a href="" ng-click="back()" class="btn download-button purchase-button ml-auto text-white">Back</a>
             </span>
         </div>
     </div>
