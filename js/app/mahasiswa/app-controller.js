@@ -33,7 +33,7 @@ app.controller("MahasiswaController", [
         };
         self.edit = function (index) {
             sharedData.FormTitle = "Edit";
-            sharedData.Mahasiswa = index;
+            sharedData.selectedIndexMahasiswa = index; // berisi nilai index yg dipilih oleh User yg ada di self.Mahassiswa[] saat di klik
             $location.path("/edit");
         };
         self.delete = function (index) {
@@ -94,14 +94,15 @@ app.controller("MahasiswaEditController", [
 
         self.init = function () {
             self.UI.FormTitle = sharedData.FormTitle;
-            self.newMahasiswa = MahasiswaServices.Mahasiswa[sharedData.Mahasiswa];
-        };
+            self.newMahasiswa = MahasiswaServices.Mahasiswa[sharedData.selectedIndexMahasiswa];
+        }; //init = fungsi yang pertama kali akan dijalankan saat controlaller dijalankan
 
         self.back = function () {
             $location.path("/");
         };
 
         self.save = function () {
+            MahasiswaServices.edit(sharedData.selectedIndexMahasiswa, self.newMahasiswa);
             self.newMahasiswa = {};
             $location.path("/");
         }

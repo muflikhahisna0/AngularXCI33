@@ -11,9 +11,8 @@ app.service("MahasiswaServices", [
             self.Mahasiswa.push(param);
         }
 
-        self.edit = function (param) {
-            console.log(`MahasiswaServices edit function called: ${index}`);
-            self.Mahasiswa.push(param);
+        self.edit = function (index, data) {
+            self.Mahasiswa[index] = data;
         }
 
         self.delete = function (param) {
