@@ -34,8 +34,6 @@ app.controller("MahasiswaController", [
         self.edit = function (index) {
             sharedData.FormTitle = "Edit";
             sharedData.Mahasiswa = index;
-            console.log(`MahasiswaController edit function called: ${index}`)
-            // self.newMahasiswa = MahasiswaServices.get(index)
             $location.path("/edit");
         };
         self.delete = function (index) {
@@ -96,6 +94,7 @@ app.controller("MahasiswaEditController", [
 
         self.init = function () {
             self.UI.FormTitle = sharedData.FormTitle;
+            self.newMahasiswa = MahasiswaServices.Mahasiswa[sharedData.Mahasiswa];
         };
 
         self.back = function () {

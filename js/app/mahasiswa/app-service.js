@@ -7,10 +7,6 @@ app.service("MahasiswaServices", [
 
         self.Mahasiswa = [];
 
-        self.get = function (index) {
-            self.Mahasiswa[index];
-        }
-
         self.add = function (param) {
             self.Mahasiswa.push(param);
         }
